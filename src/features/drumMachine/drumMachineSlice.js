@@ -28,27 +28,37 @@ export const drumsSlice = createSlice({
   },
   reducers: {
     playKey: (state, action) => {
-
-      const elemAudio = document.getElementById(action.payload);
-      const elemParent = document.getElementById("drum-pad-" + action.payload);
+      const ap = action.payload;
+      const elemAudio = document.getElementById(ap);
+      const elemParent = document.getElementById("drum-pad-" + ap);
 
       if (action.payload && elemAudio) {
-        state.currentKey = elemAudio.src
-        .split('/')[5]
-        .split('.')[0].toUpperCase();
+        state.currentKey =
+        ap === 'Z' ? 'KICK'
+        : ap === 'X' ? 'SNARE_1'
+        : ap === 'C' ? 'SNARE_2'
+        : ap === 'A' ? 'HIHAT_CLOSED'
+        : ap === 'S' ? 'TOM_1'
+        : ap === 'D' ? 'TOM_2'
+        : ap === 'Q' ? 'HIHAT_OPEN'
+        : ap === 'W' ? 'CRASH'
+        : ap === 'E' ? 'RIDE'
+        : 'KEY NOT ASSIGNED' + ap;
 
         elemAudio.pause();
         elemAudio.currentTime = 0;
         elemAudio.play();
 
         elemParent.style.background = "#f55";
+        elemParent.style.transform = "rotate3d(1,1,1,180deg)";
         setTimeout(() => {
           elemParent.style.background = "";
+          elemParent.style.transform = "rotate3d(1,1,1,360deg)";
         }, 100)
       }
 
       else {
-        console.log("key not assigned: " + action.payload)
+        console.log("key not assigned: " + ap)
       }
 
     }
