@@ -1,0 +1,70 @@
+.display,
+.drum_machine {
+  font-family: monospace;
+}
+
+.display {
+  height: 30px;
+  background: #cfc;
+  border-radius: 8px;
+  box-shadow: inset 0 0 2px #9fc;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+.drum_machine {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  left: 50%;
+  margin: auto;
+  height: 420px;
+  width: 420px;
+  padding: 15px;
+}
+
+.drum_row {
+}
+
+.drum_pad {
+  height: 130px;
+  border: 1px solid #555;
+  background: #cfc;
+  color: black;
+  border-radius: 8px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.1s;
+}
+
+.clip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 767px)  {
+
+  .drum_machine {
+    height: 300px;
+    width: 300px;
+  }
+
+  .drum_pad {
+    width: 90px;
+    height: 90px;
+  }
+
+}
