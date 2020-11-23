@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/drum-machine-sequencer/static/css/main.0f023cdc.chunk.css",
+    "main.js": "/drum-machine-sequencer/static/js/main.bb8c37fb.chunk.js",
+    "main.js.map": "/drum-machine-sequencer/static/js/main.bb8c37fb.chunk.js.map",
+    "runtime-main.js": "/drum-machine-sequencer/static/js/runtime-main.cdca758a.js",
+    "runtime-main.js.map": "/drum-machine-sequencer/static/js/runtime-main.cdca758a.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/drum-machine-sequencer/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.f6065ed0.chunk.js": "/drum-machine-sequencer/static/js/2.f6065ed0.chunk.js",
+    "static/js/2.f6065ed0.chunk.js.map": "/drum-machine-sequencer/static/js/2.f6065ed0.chunk.js.map",
+    "index.html": "/drum-machine-sequencer/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/drum-machine-sequencer/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.0f023cdc.chunk.css.map": "/drum-machine-sequencer/static/css/main.0f023cdc.chunk.css.map",
+    "static/js/2.f6065ed0.chunk.js.LICENSE.txt": "/drum-machine-sequencer/static/js/2.f6065ed0.chunk.js.LICENSE.txt",
+    "static/media/crash.ca0ea007.wav": "/drum-machine-sequencer/static/media/crash.ca0ea007.wav",
+    "static/media/hihat.ccd24c4d.wav": "/drum-machine-sequencer/static/media/hihat.ccd24c4d.wav",
+    "static/media/hihat_o.6966be37.wav": "/drum-machine-sequencer/static/media/hihat_o.6966be37.wav",
+    "static/media/kick.d0344def.wav": "/drum-machine-sequencer/static/media/kick.d0344def.wav",
+    "static/media/ride.e0b327a3.wav": "/drum-machine-sequencer/static/media/ride.e0b327a3.wav",
+    "static/media/snare_1.a2a1ab05.wav": "/drum-machine-sequencer/static/media/snare_1.a2a1ab05.wav",
+    "static/media/snare_2.7b098e83.wav": "/drum-machine-sequencer/static/media/snare_2.7b098e83.wav",
+    "static/media/tom_1.9d94aac4.wav": "/drum-machine-sequencer/static/media/tom_1.9d94aac4.wav",
+    "static/media/tom_2.c46e6ffc.wav": "/drum-machine-sequencer/static/media/tom_2.c46e6ffc.wav"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cdca758a.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.f6065ed0.chunk.js",
+    "static/css/main.0f023cdc.chunk.css",
+    "static/js/main.bb8c37fb.chunk.js"
+  ]
+}
