@@ -14,15 +14,15 @@ export const drumsSlice = createSlice({
   initialState: {
     value: 0,
     drumHits: {
-      'Z': kick,
-      'X': snare_1,
-      'C': snare_2,
+      'Q': hihat_o,
+      'W': crash,
+      'E': ride,
       'A': hihat,
       'S': tom_1,
       'D': tom_2,
-      'Q': hihat_o,
-      'W': crash,
-      'E': ride
+      'Z': kick,
+      'X': snare_1,
+      'C': snare_2
     },
     currentKey: ":: PRESS A KEY TO PLAY ::",
   },
@@ -43,7 +43,7 @@ export const drumsSlice = createSlice({
         : ap === 'Q' ? 'HIHAT_OPEN'
         : ap === 'W' ? 'CRASH'
         : ap === 'E' ? 'RIDE'
-        : 'KEY NOT ASSIGNED' + ap;
+        : 'KEY NOT ASSIGNED: ' + ap;
 
         elemAudio.pause();
         elemAudio.currentTime = 0;
@@ -53,7 +53,7 @@ export const drumsSlice = createSlice({
         elemParent.style.transform = "rotate3d(1,1,1,180deg)";
         setTimeout(() => {
           elemParent.style.background = "";
-          elemParent.style.transform = "rotate3d(1,1,1,360deg)";
+          elemParent.style.transform = "rotate3d(1,1,1,720deg)";
         }, 100)
       }
 
