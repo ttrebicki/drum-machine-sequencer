@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {  playKey  } from './drumMachineSlice';
 import styles from './drumMachine.module.css';
