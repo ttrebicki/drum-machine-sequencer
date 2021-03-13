@@ -22,17 +22,9 @@
 }
 
 .drum_machine {
-  position: absolute;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  left: 50%;
   margin: auto;
-  height: 420px;
   width: 420px;
   padding: 15px;
-}
-
-.drum_row {
 }
 
 .drum_pad {
@@ -56,8 +48,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 767px)  {
-
+@media screen and (max-width: 767px) {
   .drum_machine {
     height: 300px;
     width: 300px;
@@ -67,5 +58,4 @@
     width: 90px;
     height: 90px;
   }
-
 }
