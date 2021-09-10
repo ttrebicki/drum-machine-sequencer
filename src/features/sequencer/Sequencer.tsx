@@ -6,6 +6,8 @@ import cn from "classnames";
 import { playSequence, sequenceSelector, toggleHit } from "./SequencerSlice";
 import { ISequencerStep } from "./../../app/types";
 import styles from "./Sequencer.module.scss";
+import {Button, IconButton} from "@material-ui/core";
+import AdbIcon from '@material-ui/icons/Adb';
 
 export const Sequencer = () => {
   const sequenceFromState = useSelector(sequenceSelector);
@@ -24,14 +26,14 @@ export const Sequencer = () => {
       const sounds = Object.keys(currentElement).map((keyName) => {
         let step = index;
         return (
-          <li
+          <IconButton
             className={cn(
               styles.sound,
               currentElement[keyName] && styles.active
             )}
             key={index + keyName}
             onClick={() => toggleSound(keyName, step)}
-          />
+          ><AdbIcon/></IconButton>
         );
       });
 
