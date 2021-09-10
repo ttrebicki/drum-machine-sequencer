@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js b/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
+index 00139ee..5092ec7 100644
+--- a/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
++++ b/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
+@@ -236,7 +236,7 @@ function verifyTypeScriptSetup() {
+         );
+       }
+     } else if (parsedCompilerOptions[option] !== valueToCheck) {
+-      appTsConfig.compilerOptions[option] = value;
++      // appTsConfig.compilerOptions[option] = value;
+       messages.push(
+         `${coloredOption} ${chalk.bold(
+           valueToCheck == null ? 'must not' : 'must'

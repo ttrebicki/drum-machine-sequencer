@@ -39,7 +39,7 @@ export const currentHitScreenSetter = (
   state.currentKey = switcher(payload);
 };
 
-export const switcher = (p : string, defaultMessage = "") => {
+export const switcher = (p : string, defaultMessage = '') => {
   switch (p) {
     case DRUM_HIT_0.key:
     case DRUM_HIT_0.sound:

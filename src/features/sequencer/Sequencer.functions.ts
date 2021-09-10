@@ -2,7 +2,7 @@ import { findElemAndPlay } from "../drumMachine/drumMachine.functions";
 import { ISequencerState } from "./../../app/types";
 
 export const makeSteps = (state: ISequencerState) => {
-  const steps = state.sequence.map((currentElement) => {
+  const steps = state.measure.map((currentElement) => {
     let stepSounds = Object.keys(currentElement).filter((sound) => {
       return currentElement[sound];
     });
