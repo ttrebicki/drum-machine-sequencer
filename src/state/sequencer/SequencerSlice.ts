@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IState, ISequencerState } from "./../../app/types";
+import { IState, ISequencerState } from "../types";
 import { playAllSteps } from "./Sequencer.functions";
 
 const measure = () => {

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import drumsReducer from "../features/drumMachine/drumMachineSlice";
-import sequencerReducer from "../features/sequencer/SequencerSlice";
+import drumsReducer from "./drumMachine/drumMachineSlice";
+import sequencerReducer from "./sequencer/SequencerSlice";
 
 export default configureStore({
   reducer: {

@@ -38,20 +38,10 @@
 }
 
 .sequencer .play {
-  cursor: pointer;
-  border: 1px solid #f55;
-  height: 44px;
   left: 120px;
   padding: 8px;
   position: fixed;
   top: 60px;
-  transition: 1s;
-}
-
-.sequencer .play:hover {
-  background-color: #f55;
-  color: white;
-  font-weight: bolder;
 }
 
 @keyframes spin {

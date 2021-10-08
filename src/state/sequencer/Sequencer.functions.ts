@@ -1,5 +1,5 @@
 import { findElemAndPlay } from "../drumMachine/drumMachine.functions";
-import { ISequencerState } from "./../../app/types";
+import { ISequencerState } from "../types";
 
 export const makeSteps = (state: ISequencerState) => {
   const steps = state.measure.map((currentElement) => {

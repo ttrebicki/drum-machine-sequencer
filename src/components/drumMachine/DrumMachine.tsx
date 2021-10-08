@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectCurrentKey, selectDrumKey } from "./drumMachineSlice";
-import { DrumPad } from "./drumPad";
+import { selectCurrentKey, selectDrumKey } from "../../state/drumMachine/drumMachineSlice";
+import { DrumPad } from "./subcompo/drumPad";
 import styles from "./drumMachine.module.scss";
 import { Sequencer } from "../sequencer/Sequencer";
 
@@ -11,7 +11,7 @@ export const DrumMachine = () => {
   const drumsArr = Object.entries(drumKey); // zmienia powyższy obiekt w arr;
 
   const renderDrumPads = () => {
-    var pads = [];
+    const pads : React.ReactElement[] = [];
 
     for (var i = 0; i < drumsArr.length; i++) {
       if (i === 0 || i % 3 === 0) {

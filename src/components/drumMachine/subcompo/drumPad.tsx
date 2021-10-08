@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { playKey } from "./drumMachineSlice";
-import styles from "./drumMachine.module.scss";
+import {currentHitSetter, playKey} from "../../../state/drumMachine/drumMachineSlice";
+import styles from "../drumMachine.module.scss";
 
 interface IDrumPadProps {
   drumKey: string;
@@ -12,6 +12,7 @@ export const DrumPad = (props: IDrumPadProps) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(playKey(props.drumKey /*, props.drumHit*/));
+    dispatch(currentHitSetter(props.drumKey))
   };
 
   return (
