@@ -14,12 +14,13 @@ export const makeSteps = (state: ISequencerState) => {
 
 export const playAllSteps = (state: ISequencerState, bpm: number) => {
   var madeSteps = makeSteps(state);
+  let recursivePlayer: NodeJS.Timeout | undefined;
 
   var elemStep;
 
   const playStepbyStep = (index = 0, beats = bpm, s = state) => {
     const tempo = (1000 * 60) / bpm / 4;
-    const recursivePlayer = setTimeout((i = index) => {
+    recursivePlayer = setTimeout((i = index) => {
       playStepbyStep(i, beats, s);
     }, tempo);
 
@@ -27,7 +28,7 @@ export const playAllSteps = (state: ISequencerState, bpm: number) => {
       elemStep = document.getElementById("step-" + index.toString());
       if (elemStep) {
         findElemAndPlay(state, sound);
-        blowTheStep(elemStep);
+        animateTheStepMarker(elemStep);
       }
     });
 
@@ -40,10 +41,11 @@ export const playAllSteps = (state: ISequencerState, bpm: number) => {
       return recursivePlayer;
     }
   };
-  playStepbyStep();
+  clearTimeout(recursivePlayer)
+  playStepbyStep()
 };
 
-export const blowTheStep = (elemStep: HTMLElement) => {
+export const animateTheStepMarker = (elemStep: HTMLElement) => {
   elemStep.style.background = "#fff";
   elemStep.style.boxShadow = "0 0 16px 4px #f55";
 

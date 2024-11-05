@@ -32,7 +32,7 @@ export const sequencerSlice = createSlice({
   },
   reducers: {
     playSequence: (state: ISequencerState) => {
-      playAllSteps(state, 130);
+      playAllSteps(state, 150);
     },
 
     toggleHit: (state: ISequencerState, action) => {
