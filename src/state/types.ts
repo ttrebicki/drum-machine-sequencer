@@ -26,6 +26,7 @@ export interface IDrumHits {
 
 export interface ISequencerState {
   measure: ISequencerStep[];
+  isPlaying: boolean;
 }
 
 export interface ISequencerStep {

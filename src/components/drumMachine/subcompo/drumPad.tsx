@@ -8,6 +8,22 @@ interface IDrumPadProps {
   drumHit: string;
 }
 
+// Key mapping for drum pads
+const keyMapping: { [key: string]: string } = {
+  kick: "Q",
+  snare_1: "W",
+  snare_2: "E",
+  hihat: "A",
+  hihat_o: "S",
+  crash: "D",
+  ride: "Z",
+  tom_1: "X",
+  tom_2: "C",
+  footstep: "F",
+  snowball: "G",
+  bottlepick: "H",
+};
+
 export const DrumPad = (props: IDrumPadProps) => {
   const dispatch = useDispatch();
   const handleClick = () => {
@@ -15,13 +31,16 @@ export const DrumPad = (props: IDrumPadProps) => {
     dispatch(currentHitSetter(props.drumKey));
   };
 
+  const keyLabel = keyMapping[props.drumKey] || props.drumKey;
+
   return (
     <div
       id={"drum-pad-" + props.drumKey}
       className={"col-4 drum-pad " + styles.drum_pad}
       onClick={handleClick}
     >
-      {props.drumKey}
+      <div className={styles.drum_pad_label}>{props.drumKey}</div>
+      <div className={styles.drum_pad_key}>{keyLabel}</div>
       <audio className={"clip " + styles.clip} id={props.drumKey} src={props.drumHit}></audio>
     </div>
   );

@@ -40,6 +40,28 @@
   -ms-user-select: none;
   user-select: none;
   transition: 0.1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.drum_pad_label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.drum_pad_key {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  min-width: 24px;
+  text-align: center;
 }
 
 .clip {

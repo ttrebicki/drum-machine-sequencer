@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import cn from "classnames";
 
-import { playSequence, stopSequence, sequenceSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
+import { togglePlayback, sequenceSelector, isPlayingSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
 import { ISequencerStep } from "../../state/types";
 import styles from "./Sequencer.module.scss";
 import { Button, IconButton } from "@mui/material";
@@ -11,18 +11,15 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 export const Sequencer = () => {
   const sequenceFromState = useSelector(sequenceSelector);
+  const isPlaying = useSelector(isPlayingSelector);
 
   const dispatch = useDispatch();
   const toggleSound = (sound: string, step: number) => {
     dispatch(toggleHit({ sound, step }));
   };
 
-  const playSteps = async () => {
-    dispatch(playSequence());
-  };
-
-  const stopSteps = () => {
-    dispatch(stopSequence());
+  const handleTogglePlayback = () => {
+    dispatch(togglePlayback());
   };
 
   const renderSteps = (sequence: ISequencerStep[]) => {
@@ -52,25 +49,19 @@ export const Sequencer = () => {
 
   return (
     <div className={styles.sequencer}>
-      {renderSteps(sequenceFromState)}
       <div className={styles.controls}>
         <Button
           className={styles.play}
-          variant={"contained"}
+          variant={isPlaying ? "outlined" : "contained"}
           size={"large"}
           disableElevation={true}
-          onClick={playSteps}
+          onClick={handleTogglePlayback}
         >
-          PLAY
+          {isPlaying ? "STOP" : "PLAY"}
         </Button>
-        <Button
-          className={styles.stop}
-          variant={"outlined"}
-          size={"large"}
-          onClick={stopSteps}
-        >
-          STOP
-        </Button>
+      </div>
+      <div className={styles.steps}>
+        {renderSteps(sequenceFromState)}
       </div>
     </div>
   );
