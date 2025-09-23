@@ -1,6 +1,7 @@
 import React, { KeyboardEvent } from "react";
 import { useDispatch } from "react-redux";
 import { DrumMachine } from "./features/drum-machine";
+import { Sequencer } from "./features/sequencer";
 import { currentHitSetter, playKey } from "./features/drum-machine";
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <div className="App" onKeyDown={(event) => handleKeyDown(event)} tabIndex={0}>
       <DrumMachine />
+      <Sequencer />
     </div>
   );
 };

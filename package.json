@@ -2,7 +2,7 @@
   "name": "drum-machine",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ttrebicki.github.io/drum-machine-sequencer",
+  "homepage": "https://ttrebicki.github.io/drum-machine-sequencer",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
