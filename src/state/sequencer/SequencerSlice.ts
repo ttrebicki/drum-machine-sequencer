@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IState, ISequencerState } from "../types";
-import { playAllSteps } from "./Sequencer.functions";
+import { playAllSteps, stopSequencer } from "./Sequencer.functions";
 
 const measure = () => {
   const measure = [];
@@ -35,6 +35,10 @@ export const sequencerSlice = createSlice({
       playAllSteps(state, 150);
     },
 
+    stopSequence: () => {
+      stopSequencer();
+    },
+
     toggleHit: (state: ISequencerState, action) => {
       // na kliknięcie obecny stan zmieniamy na odwrotny
       let step = action.payload.step;
@@ -45,7 +49,7 @@ export const sequencerSlice = createSlice({
   },
 });
 
-export const { playSequence, toggleHit } = sequencerSlice.actions;
+export const { playSequence, stopSequence, toggleHit } = sequencerSlice.actions;
 
 export const sequenceSelector = (state: IState) => state.sequencer.measure;
 

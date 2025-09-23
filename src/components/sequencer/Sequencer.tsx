@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import cn from "classnames";
 
-import { playSequence, sequenceSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
+import { playSequence, stopSequence, sequenceSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
 import { ISequencerStep } from "../../state/types";
 import styles from "./Sequencer.module.scss";
 import { Button, IconButton } from "@mui/material";
@@ -19,6 +19,10 @@ export const Sequencer = () => {
 
   const playSteps = async () => {
     dispatch(playSequence());
+  };
+
+  const stopSteps = () => {
+    dispatch(stopSequence());
   };
 
   const renderSteps = (sequence: ISequencerStep[]) => {
@@ -49,15 +53,25 @@ export const Sequencer = () => {
   return (
     <div className={styles.sequencer}>
       {renderSteps(sequenceFromState)}
-      <Button
-        className={styles.play}
-        variant={"contained"}
-        size={"large"}
-        disableElevation={true}
-        onClick={playSteps}
-      >
-        PLAY
-      </Button>
+      <div className={styles.controls}>
+        <Button
+          className={styles.play}
+          variant={"contained"}
+          size={"large"}
+          disableElevation={true}
+          onClick={playSteps}
+        >
+          PLAY
+        </Button>
+        <Button
+          className={styles.stop}
+          variant={"outlined"}
+          size={"large"}
+          onClick={stopSteps}
+        >
+          STOP
+        </Button>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React, { KeyboardEvent } from "react";
 import { useDispatch } from "react-redux";
 import { DrumMachine } from "./components/drumMachine/DrumMachine";
 import { currentHitSetter, playKey } from "./state/drumMachine/drumMachineSlice";
-import "./App.scss";
 
 const App = () => {
   const dispatch = useDispatch();
