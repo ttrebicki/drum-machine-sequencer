@@ -5,11 +5,20 @@
   align-items: center;
   justify-content: center;
   margin: auto;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .sequencer .steps {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .sequencer .step {
@@ -17,12 +26,14 @@
   flex-direction: column;
   list-style-type: none;
   padding: 0;
-  margin-right: 4px;
+  margin: 0 2px;
+  min-width: 24px;
 }
 
 .sequencer .step .sound {
   cursor: pointer;
   height: 24px;
+  min-height: 20px;
   border: 1px solid #555;
   background: #cfc;
   color: black;
@@ -36,6 +47,10 @@
   user-select: none;
   transition: 0.1s;
   width: 24px;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sequencer .step .sound.active {
@@ -50,14 +65,18 @@
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .sequencer .play {
   padding: 8px;
+  min-width: 80px;
 }
 
 .sequencer .stop {
   padding: 8px;
+  min-width: 80px;
 }
 
 @keyframes spin {
@@ -66,5 +85,83 @@
   }
   100% {
     transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+  .sequencer {
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .sequencer .step .sound {
+    height: 22px;
+    width: 22px;
+    min-width: 18px;
+  }
+
+  .sequencer .controls {
+    gap: 12px;
+    margin-top: 12px;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .sequencer {
+    padding: 0 8px;
+    gap: 8px;
+  }
+
+  .sequencer .steps {
+    gap: 1px;
+  }
+
+  .sequencer .step {
+    margin: 0 1px;
+    min-width: 20px;
+  }
+
+  .sequencer .step .sound {
+    height: 20px;
+    width: 20px;
+    min-width: 16px;
+    min-height: 16px;
+    margin-bottom: 2px;
+  }
+
+  .sequencer .controls {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .sequencer .play,
+  .sequencer .stop {
+    padding: 6px;
+    min-width: 70px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 480px) {
+  .sequencer {
+    padding: 0 4px;
+    gap: 6px;
+  }
+
+  .sequencer .step .sound {
+    height: 18px;
+    width: 18px;
+    min-width: 14px;
+    min-height: 14px;
+  }
+
+  .sequencer .play,
+  .sequencer .stop {
+    padding: 4px;
+    min-width: 60px;
+    font-size: 0.8rem;
   }
 }
