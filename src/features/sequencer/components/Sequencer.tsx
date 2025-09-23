@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import cn from "classnames";
 
-import { togglePlayback, sequenceSelector, isPlayingSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
-import { ISequencerStep } from "../../state/types";
+import { togglePlayback, sequenceSelector, isPlayingSelector, toggleHit } from "../SequencerSlice";
+import { ISequencerStep } from "../../../shared/types";
 import styles from "./Sequencer.module.scss";
 import { Button, IconButton } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";

@@ -1,5 +1,5 @@
-import { IDrumMachineState, ISequencerState } from "../types";
-import * as DrumHits from "../../constants/drumMachine.constants";
+import { IDrumMachineState, ISequencerState } from "../../shared/types";
+import * as DrumHits from "../../shared/utils";
 
 export const playSound = (elemAudio: HTMLAudioElement | null) => {
   if (elemAudio) {

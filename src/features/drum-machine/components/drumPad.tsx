@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { currentHitSetter, playKey } from "../../../state/drumMachine/drumMachineSlice";
-import styles from "../drumMachine.module.scss";
+import { currentHitSetter, playKey } from "../drumMachineSlice";
+import styles from "./drumMachine.module.scss";
 
 interface IDrumPadProps {
   drumKey: string;
