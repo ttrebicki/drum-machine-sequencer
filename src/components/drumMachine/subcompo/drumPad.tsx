@@ -8,20 +8,20 @@ interface IDrumPadProps {
   drumHit: string;
 }
 
-// Key mapping for drum pads
+// Key mapping for drum pads - matches constants/drumMachine.constants.ts
 const keyMapping: { [key: string]: string } = {
-  kick: "Q",
-  snare_1: "W",
-  snare_2: "E",
+  hihat_o: "Q",
+  crash: "W", 
+  ride: "E",
   hihat: "A",
-  hihat_o: "S",
-  crash: "D",
-  ride: "Z",
-  tom_1: "X",
-  tom_2: "C",
-  footstep: "F",
-  snowball: "G",
-  bottlepick: "H",
+  tom_1: "S",
+  tom_2: "D",
+  kick: "Z",
+  snare_1: "X",
+  snare_2: "C",
+  snowball: "R",
+  bottlepick: "T",
+  footstep: "Y",
 };
 
 export const DrumPad = (props: IDrumPadProps) => {
