@@ -1,6 +1,9 @@
 import { findElemAndPlay } from "../drumMachine/drumMachine.functions";
 import { ISequencerState } from "../types";
 
+// Global timer reference to ensure only one sequencer runs at a time
+let globalSequencerTimer: ReturnType<typeof setTimeout> | null = null;
+
 export const makeSteps = (state: ISequencerState) => {
   const steps = state.measure.map((currentElement) => {
     const stepSounds = Object.keys(currentElement).filter((sound) => {
@@ -12,37 +15,38 @@ export const makeSteps = (state: ISequencerState) => {
   return steps;
 };
 
-export const playAllSteps = (state: ISequencerState, bpm: number) => {
-  const madeSteps = makeSteps(state);
-  let recursivePlayer: ReturnType<typeof setTimeout> | null = null;
+export const stopSequencer = () => {
+  if (globalSequencerTimer !== null) {
+    clearTimeout(globalSequencerTimer);
+    globalSequencerTimer = null;
+  }
+};
 
-  let elemStep: HTMLElement | null;
+export const playAllSteps = (state: ISequencerState, bpm: number) => {
+  // Stop any existing sequencer session first
+  stopSequencer();
+
+  const madeSteps = makeSteps(state);
+  const tempo = (1000 * 60) / bpm / 4;
 
   const playStepbyStep = (index = 0) => {
-    const tempo = (1000 * 60) / bpm / 4;
-
-    // Process current index
+    // Process current step
     madeSteps[index].forEach((sound) => {
-      elemStep = document.getElementById("step-" + index.toString());
+      const elemStep = document.getElementById("step-" + index.toString());
       if (elemStep) {
         findElemAndPlay(state, sound);
         animateTheStepMarker(elemStep);
       }
     });
 
+    // Schedule next step
     const nextIndex = (index + 1) % madeSteps.length;
-
-    if (recursivePlayer !== null) {
-      clearTimeout(recursivePlayer);
-    }
-    recursivePlayer = setTimeout(() => {
+    globalSequencerTimer = setTimeout(() => {
       playStepbyStep(nextIndex);
     }, tempo);
   };
 
-  if (recursivePlayer !== null) {
-    clearTimeout(recursivePlayer);
-  }
+  // Start the sequencer
   playStepbyStep();
 };
 

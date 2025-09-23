@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IState, ISequencerState } from "../types";
-import { playAllSteps } from "./Sequencer.functions";
+import { playAllSteps, stopSequencer } from "./Sequencer.functions";
 
 const measure = () => {
   const measure = [];
@@ -29,10 +29,22 @@ export const sequencerSlice = createSlice({
   name: "sequencer",
   initialState: {
     measure: measure(),
+    isPlaying: false,
   },
   reducers: {
-    playSequence: (state: ISequencerState) => {
-      playAllSteps(state, 150);
+    togglePlayback: (state: ISequencerState) => {
+      if (state.isPlaying) {
+        stopSequencer();
+        state.isPlaying = false;
+      } else {
+        playAllSteps(state, 150);
+        state.isPlaying = true;
+      }
+    },
+
+    stopSequence: (state: ISequencerState) => {
+      stopSequencer();
+      state.isPlaying = false;
     },
 
     toggleHit: (state: ISequencerState, action) => {
@@ -45,8 +57,9 @@ export const sequencerSlice = createSlice({
   },
 });
 
-export const { playSequence, toggleHit } = sequencerSlice.actions;
+export const { togglePlayback, stopSequence, toggleHit } = sequencerSlice.actions;
 
 export const sequenceSelector = (state: IState) => state.sequencer.measure;
+export const isPlayingSelector = (state: IState) => state.sequencer.isPlaying;
 
 export default sequencerSlice.reducer;

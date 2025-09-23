@@ -1,6 +1,15 @@
 .sequencer {
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
   margin: auto;
+}
+
+.sequencer .steps {
+  display: flex;
+  flex-direction: row;
 }
 
 .sequencer .step {
@@ -37,11 +46,18 @@
   animation-direction: normal;
 }
 
+.sequencer .controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
 .sequencer .play {
-  left: 120px;
   padding: 8px;
-  position: fixed;
-  top: 60px;
+}
+
+.sequencer .stop {
+  padding: 8px;
 }
 
 @keyframes spin {
