@@ -23,8 +23,10 @@
 
 .drum_machine {
   margin: auto;
-  width: 420px;
+  max-width: 420px;
+  width: 100%;
   padding: 15px;
+  box-sizing: border-box;
 }
 
 .drum_pad {
@@ -51,6 +53,8 @@
   font-size: 0.8rem;
   font-weight: bold;
   margin-bottom: 4px;
+  text-align: center;
+  word-break: break-word;
 }
 
 .drum_pad_key {
@@ -70,14 +74,73 @@
   height: 100%;
 }
 
-@media screen and (max-width: 767px) {
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
   .drum_machine {
-    height: 300px;
-    width: 300px;
+    max-width: 100%;
+    padding: 10px;
   }
 
   .drum_pad {
-    width: 90px;
-    height: 90px;
+    height: 100px;
+  }
+
+  .drum_pad_label {
+    font-size: 0.7rem;
+  }
+
+  .drum_pad_key {
+    font-size: 1rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .drum_machine {
+    padding: 8px;
+    max-width: 320px;
+  }
+
+  .drum_pad {
+    height: 80px;
+  }
+
+  .drum_pad_label {
+    font-size: 0.6rem;
+    margin-bottom: 2px;
+  }
+
+  .drum_pad_key {
+    font-size: 0.9rem;
+    padding: 2px 4px;
+    min-width: 20px;
+  }
+
+  .display {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 480px) {
+  .drum_machine {
+    max-width: 280px;
+    padding: 6px;
+  }
+
+  .drum_pad {
+    height: 70px;
+  }
+
+  .drum_pad_label {
+    font-size: 0.5rem;
+  }
+
+  .drum_pad_key {
+    font-size: 0.8rem;
+    padding: 1px 3px;
+    min-width: 18px;
   }
 }
