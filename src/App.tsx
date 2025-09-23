@@ -1,8 +1,8 @@
 import React, { KeyboardEvent } from "react";
 import { useDispatch } from "react-redux";
-import { DrumMachine } from "./features/drum-machine";
-import { Sequencer } from "./features/sequencer";
-import { currentHitSetter, playKey } from "./features/drum-machine";
+import { DrumMachine } from "./features/drum-machine/components/DrumMachine";
+import { Sequencer } from "./features/sequencer/components/Sequencer";
+import { currentHitSetter, playKey } from "./features/drum-machine/drumMachineSlice";
 
 const App = () => {
   const dispatch = useDispatch();
