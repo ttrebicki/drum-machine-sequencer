@@ -1,5 +1,5 @@
-import { findElemAndPlay } from "../drumMachine/drumMachine.functions";
-import { ISequencerState } from "../types";
+import { findElemAndPlay } from "../drum-machine/drumMachine.functions";
+import { ISequencerState } from "../../shared/types";
 
 // Global timer reference to ensure only one sequencer runs at a time
 let globalSequencerTimer: ReturnType<typeof setTimeout> | null = null;

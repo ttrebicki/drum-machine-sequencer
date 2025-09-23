@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectCurrentKey, selectDrumKey } from "../../state/drumMachine/drumMachineSlice";
-import { DrumPad } from "./subcompo/drumPad";
+import { selectCurrentKey, selectDrumKey } from "../drumMachineSlice";
+import { DrumPad } from "./drumPad";
+import { Sequencer } from "../../sequencer/components/Sequencer";
 import styles from "./drumMachine.module.scss";
-import { Sequencer } from "../sequencer/Sequencer";
 
 export const DrumMachine = () => {
   const currentKey = useSelector(selectCurrentKey); // tekst do displaya;

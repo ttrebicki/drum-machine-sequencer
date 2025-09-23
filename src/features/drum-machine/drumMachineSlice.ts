@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { findElemAndPlay, switcher } from "./drumMachine.functions";
 
-import kick from "../../files/drumHits/kick.wav";
-import hihat from "../../files/drumHits/test.wav";
-import hihat_o from "../../files/drumHits/hihat_o.wav";
-import ride from "../../files/drumHits/ride.wav";
-import crash from "../../files/drumHits/crash.wav";
-import tom_1 from "../../files/drumHits/tom_1.wav";
-import tom_2 from "../../files/drumHits/tom_2.wav";
-import snare_1 from "../../files/drumHits/snare_1.wav";
-import snare_2 from "../../files/drumHits/snare_2.wav";
-import snowball from "../../files/drumHits/snowball.wav";
-import bottlepick from "../../files/drumHits/bottlepick.wav";
-import footstep from "../../files/drumHits/footstep.wav";
-import { IDrumMachineState, IState } from "../types";
+import kick from "../../assets/audio/kick.wav";
+import hihat from "../../assets/audio/test.wav";
+import hihat_o from "../../assets/audio/hihat_o.wav";
+import ride from "../../assets/audio/ride.wav";
+import crash from "../../assets/audio/crash.wav";
+import tom_1 from "../../assets/audio/tom_1.wav";
+import tom_2 from "../../assets/audio/tom_2.wav";
+import snare_1 from "../../assets/audio/snare_1.wav";
+import snare_2 from "../../assets/audio/snare_2.wav";
+import snowball from "../../assets/audio/snowball.wav";
+import bottlepick from "../../assets/audio/bottlepick.wav";
+import footstep from "../../assets/audio/footstep.wav";
+import { IDrumMachineState, IState } from "../../shared/types";
 
 export const drumsSlice = createSlice({
   name: "drums",
