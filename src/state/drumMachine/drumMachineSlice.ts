@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {findElemAndPlay, switcher} from "./drumMachine.functions";
+import { findElemAndPlay, switcher } from "./drumMachine.functions";
 
 import kick from "../../files/drumHits/kick.wav";
 import hihat from "../../files/drumHits/test.wav";
@@ -13,7 +13,7 @@ import snare_2 from "../../files/drumHits/snare_2.wav";
 import snowball from "../../files/drumHits/snowball.wav";
 import bottlepick from "../../files/drumHits/bottlepick.wav";
 import footstep from "../../files/drumHits/footstep.wav";
-import {IDrumMachineState, IState} from "../types";
+import { IDrumMachineState, IState } from "../types";
 
 export const drumsSlice = createSlice({
   name: "drums",
@@ -36,10 +36,7 @@ export const drumsSlice = createSlice({
   },
 
   reducers: {
-    currentHitSetter: (
-        state: IDrumMachineState,
-        action
-    ) => {
+    currentHitSetter: (state: IDrumMachineState, action) => {
       state.currentKey = switcher(action.payload);
     },
     playKey: (state, action) => findElemAndPlay(state, action.payload),
@@ -48,8 +45,7 @@ export const drumsSlice = createSlice({
 
 export const { currentHitSetter, playKey } = drumsSlice.actions;
 
-export const selectDrumHit = (state: IState) => (drumHit: string) =>
-  state.drums.drumHits[drumHit];
+export const selectDrumHit = (state: IState) => (drumHit: string) => state.drums.drumHits[drumHit];
 export const selectDrumKey = (state: IState) => state.drums.drumHits;
 export const selectCurrentKey = (state: IState) => state.drums.currentKey;
 

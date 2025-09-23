@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {currentHitSetter, playKey} from "../../../state/drumMachine/drumMachineSlice";
+import { currentHitSetter, playKey } from "../../../state/drumMachine/drumMachineSlice";
 import styles from "../drumMachine.module.scss";
 
 interface IDrumPadProps {
@@ -12,7 +12,7 @@ export const DrumPad = (props: IDrumPadProps) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(playKey(props.drumKey /*, props.drumHit*/));
-    dispatch(currentHitSetter(props.drumKey))
+    dispatch(currentHitSetter(props.drumKey));
   };
 
   return (
@@ -22,11 +22,7 @@ export const DrumPad = (props: IDrumPadProps) => {
       onClick={handleClick}
     >
       {props.drumKey}
-      <audio
-        className={"clip " + styles.clip}
-        id={props.drumKey}
-        src={props.drumHit}
-      ></audio>
+      <audio className={"clip " + styles.clip} id={props.drumKey} src={props.drumHit}></audio>
     </div>
   );
 };

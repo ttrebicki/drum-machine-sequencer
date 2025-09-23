@@ -1,15 +1,15 @@
 import { IDrumMachineState, ISequencerState } from "../types";
 import * as DrumHits from "../../constants/drumMachine.constants";
 
-export const playSound = (elemAudio : HTMLAudioElement | null) => {
+export const playSound = (elemAudio: HTMLAudioElement | null) => {
   if (elemAudio) {
     elemAudio.pause();
     elemAudio.currentTime = 0;
-    elemAudio.play()
+    elemAudio.play();
   }
 };
 
-export const rotatePad = (elemParent : HTMLElement) => {
+export const rotatePad = (elemParent: HTMLElement) => {
   elemParent.style.background = "#f55";
   elemParent.style.transform = "rotate3d(1,1,1,180deg)";
 
@@ -19,14 +19,11 @@ export const rotatePad = (elemParent : HTMLElement) => {
   }, 100);
 };
 
-export const currentHitScreenSetter = (
-  state: IDrumMachineState,
-  payload: string
-) => {
+export const currentHitScreenSetter = (state: IDrumMachineState, payload: string) => {
   state.currentKey = switcher(payload);
 };
 
-export const switcher = (p : string, defaultMessage = '') => {
+export const switcher = (p: string, defaultMessage = "") => {
   switch (p) {
     case DrumHits.DRUM_HIT_0.key:
     case DrumHits.DRUM_HIT_0.sound:
@@ -81,13 +78,8 @@ export const switcher = (p : string, defaultMessage = '') => {
   }
 };
 
-export const findElemAndPlay = (
-  state: IDrumMachineState | ISequencerState,
-  payload: string
-) => {
-  const elemAudio : any = document.getElementById(
-    switcher(payload)
-  );
+export const findElemAndPlay = (state: IDrumMachineState | ISequencerState, payload: string) => {
+  const elemAudio: any = document.getElementById(switcher(payload));
   const elemParent = document.getElementById("drum-pad-" + switcher(payload));
 
   if (elemParent && elemAudio) {

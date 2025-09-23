@@ -6,8 +6,8 @@ import cn from "classnames";
 import { playSequence, sequenceSelector, toggleHit } from "../../state/sequencer/SequencerSlice";
 import { ISequencerStep } from "../../state/types";
 import styles from "./Sequencer.module.scss";
-import {Button, IconButton} from "@material-ui/core";
-import AdbIcon from '@material-ui/icons/Adb';
+import { Button, IconButton } from "@mui/material";
+import AdbIcon from "@mui/icons-material/Adb";
 
 export const Sequencer = () => {
   const sequenceFromState = useSelector(sequenceSelector);
@@ -27,22 +27,17 @@ export const Sequencer = () => {
         let step = index;
         return (
           <IconButton
-            className={cn(
-              styles.sound,
-              currentElement[keyName] && styles.active
-            )}
+            className={cn(styles.sound, currentElement[keyName] && styles.active)}
             key={index + keyName}
             onClick={() => toggleSound(keyName, step)}
-          ><AdbIcon/></IconButton>
+          >
+            <AdbIcon />
+          </IconButton>
         );
       });
 
       return (
-        <ul
-          className={styles.step}
-          id={"step-" + index.toString()}
-          key={index++}
-        >
+        <ul className={styles.step} id={"step-" + index.toString()} key={index++}>
           {sounds}
         </ul>
       );
@@ -54,7 +49,13 @@ export const Sequencer = () => {
   return (
     <div className={styles.sequencer}>
       {renderSteps(sequenceFromState)}
-      <Button className={styles.play} variant={'contained'} size={'large'} disableElevation={true} onClick={playSteps}>
+      <Button
+        className={styles.play}
+        variant={"contained"}
+        size={"large"}
+        disableElevation={true}
+        onClick={playSteps}
+      >
         PLAY
       </Button>
     </div>

@@ -3,7 +3,7 @@ import { ISequencerState } from "../types";
 
 export const makeSteps = (state: ISequencerState) => {
   const steps = state.measure.map((currentElement) => {
-    let stepSounds = Object.keys(currentElement).filter((sound) => {
+    const stepSounds = Object.keys(currentElement).filter((sound) => {
       return currentElement[sound];
     });
 
@@ -13,18 +13,16 @@ export const makeSteps = (state: ISequencerState) => {
 };
 
 export const playAllSteps = (state: ISequencerState, bpm: number) => {
-  var madeSteps = makeSteps(state);
-  let recursivePlayer: NodeJS.Timeout | undefined;
+  const madeSteps = makeSteps(state);
+  let recursivePlayer: ReturnType<typeof setTimeout> | null = null;
 
-  var elemStep;
+  let elemStep: HTMLElement | null;
 
-  const playStepbyStep = (index = 0, beats = bpm, s = state) => {
+  const playStepbyStep = (index = 0) => {
     const tempo = (1000 * 60) / bpm / 4;
-    recursivePlayer = setTimeout((i = index) => {
-      playStepbyStep(i, beats, s);
-    }, tempo);
 
-    madeSteps[index].map((sound) => {
+    // Process current index
+    madeSteps[index].forEach((sound) => {
       elemStep = document.getElementById("step-" + index.toString());
       if (elemStep) {
         findElemAndPlay(state, sound);
@@ -32,17 +30,20 @@ export const playAllSteps = (state: ISequencerState, bpm: number) => {
       }
     });
 
-    index++;
+    const nextIndex = (index + 1) % madeSteps.length;
 
-    if (index < madeSteps.length) {
-      return recursivePlayer;
-    } else {
-      index = 0;
-      return recursivePlayer;
+    if (recursivePlayer !== null) {
+      clearTimeout(recursivePlayer);
     }
+    recursivePlayer = setTimeout(() => {
+      playStepbyStep(nextIndex);
+    }, tempo);
   };
-  clearTimeout(recursivePlayer)
-  playStepbyStep()
+
+  if (recursivePlayer !== null) {
+    clearTimeout(recursivePlayer);
+  }
+  playStepbyStep();
 };
 
 export const animateTheStepMarker = (elemStep: HTMLElement) => {

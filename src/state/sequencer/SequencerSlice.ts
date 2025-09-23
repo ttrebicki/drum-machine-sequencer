@@ -3,7 +3,7 @@ import { IState, ISequencerState } from "../types";
 import { playAllSteps } from "./Sequencer.functions";
 
 const measure = () => {
-  const measure = []
+  const measure = [];
   let i;
   for (i = 0; i < 16; i++) {
     measure.push({
@@ -19,11 +19,11 @@ const measure = () => {
       footstep: false,
       snowball: false,
       bottlepick: false,
-    })
+    });
   }
 
-  return measure
-}
+  return measure;
+};
 
 export const sequencerSlice = createSlice({
   name: "sequencer",
